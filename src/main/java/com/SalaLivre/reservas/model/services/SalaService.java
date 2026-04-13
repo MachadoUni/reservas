@@ -32,7 +32,7 @@ public class SalaService {
         return (List<Sala>) salaRepository.findAll();
     }
 
-    public boolean deletarProduto(Long id) throws Exception {
+    public boolean deletarSala(Long id) throws Exception {
         if (id == null) {
             throw new Exception("ID inválido.");
         }
@@ -45,7 +45,7 @@ public class SalaService {
         }
     }
 
-    public boolean atualizarProduto(Long id, Sala sala) throws Exception {
+    public boolean atualizarSala(Long id, Sala sala) throws Exception {
 
         if (id == null) {
             throw new Exception("ID inválido.");

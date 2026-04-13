@@ -38,4 +38,24 @@ public class SalaController {
         List<Sala> salas = salaService.getSalas();
         return ResponseEntity.ok(salas);
     }
+
+    @DeleteMapping("/apagar/{id}")
+    public ResponseEntity<?> deletarSala(@PathVariable("id") Long id) {
+        try {
+            salaService.deletarSala(id);
+            return ResponseEntity.ok(true);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+    }
+
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<?> atualizarSala(@PathVariable("id") Long id, @RequestBody Sala sala) {
+        try {
+            salaService.atualizarSala(id, sala);
+            return ResponseEntity.ok(true);
+        }catch (Exception e) {
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+    }
 }
