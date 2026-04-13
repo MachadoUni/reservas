@@ -1,10 +1,9 @@
 package com.SalaLivre.reservas.controller;
 
 import com.SalaLivre.reservas.model.services.SalaService;
+import com.SalaLivre.reservas.model.entities.Sala;
 
 import java.util.List;
-
-import com.SalaLivre.reservas.model.entities.Sala;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
