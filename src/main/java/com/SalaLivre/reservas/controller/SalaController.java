@@ -1,6 +1,7 @@
 package com.SalaLivre.reservas.controller;
 
 import com.SalaLivre.reservas.model.services.SalaService;
+import com.SalaLivre.reservas.model.DTO.SalaDTO;
 import com.SalaLivre.reservas.model.entities.Sala;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/salas")
 public class SalaController {
@@ -23,7 +25,7 @@ public class SalaController {
     }
 
     @PostMapping("/novo")
-    public ResponseEntity<?> novoSala(@RequestBody Sala sala) {
+    public ResponseEntity<?> novoSala(@RequestBody SalaDTO sala) {
         try {
             salaService.novaSala(sala);
             return ResponseEntity.ok("Sala criado com sucesso.");
@@ -38,7 +40,7 @@ public class SalaController {
         return ResponseEntity.ok(salas);
     }
 
-    @DeleteMapping("/apagar/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deletarSala(@PathVariable("id") Long id) {
         try {
             salaService.deletarSala(id);
@@ -48,8 +50,8 @@ public class SalaController {
         }
     }
 
-    @PutMapping("/atualizar/{id}")
-    public ResponseEntity<?> atualizarSala(@PathVariable("id") Long id, @RequestBody Sala sala) {
+    @PutMapping("/{id}")
+    public ResponseEntity<?> atualizarSala(@PathVariable("id") Long id, @RequestBody SalaDTO sala) {
         try {
             salaService.atualizarSala(id, sala);
             return ResponseEntity.ok(true);

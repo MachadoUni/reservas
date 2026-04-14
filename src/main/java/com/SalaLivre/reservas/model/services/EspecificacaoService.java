@@ -28,7 +28,7 @@ public class EspecificacaoService {
         return (List<Especificacao>) especificacaoRepository.findAll();
     }
 
-    public boolean deletarProduto(Long id) throws Exception {
+    public boolean deletarEspec(Long id) throws Exception {
         if (id == null) {
             throw new Exception("ID inválido.");
         }

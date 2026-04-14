@@ -7,12 +7,9 @@ import com.SalaLivre.reservas.model.services.EspecificacaoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestControllerAdvice
 @RequestMapping("/especificacoes")
 public class EspecificacaoController {
@@ -38,5 +35,15 @@ public class EspecificacaoController {
     public ResponseEntity<List<Especificacao>> getEspecificacao() {
         List<Especificacao> especificacaos = especService.getEspecs();
         return ResponseEntity.ok(especificacaos);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletarEspecificacao(@PathVariable("id") Long id) {
+        try {
+            especService.deletarEspec(id);
+            return ResponseEntity.ok(true);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
     }
 }

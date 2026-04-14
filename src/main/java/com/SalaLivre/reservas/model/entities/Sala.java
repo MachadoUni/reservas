@@ -16,14 +16,14 @@ public class Sala {
     private Long id;
 
     private String nome;
-    private List<String> listaEspecificacoes ;
+    private List<Especificacao> listaEspecificacoes ;
     private Integer maxAlunos;
 
     public Sala() {
 
     }
 
-    public Sala(String nome, List<String> especificacoes, Integer maxAlunos) {
+    public Sala(String nome, List<Especificacao> especificacoes, Integer maxAlunos) {
         this.setNome(nome);
         this.setListaEspecificacoes(especificacoes);
         this.setMaxAlunos(maxAlunos);
@@ -37,11 +37,11 @@ public class Sala {
         this.maxAlunos = maxAlunos;
     }
 
-    public List<String> getListaEspecificacoes() {
+    public List<Especificacao> getListaEspecificacoes() {
         return listaEspecificacoes;
     }
 
-    public void setListaEspecificacoes(List<String> listaEspecificacoes) {
+    public void setListaEspecificacoes(List<Especificacao> listaEspecificacoes) {
         this.listaEspecificacoes = listaEspecificacoes;
     }
 
