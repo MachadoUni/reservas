@@ -7,6 +7,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 @Table(name = "salas")
@@ -16,7 +19,15 @@ public class Sala {
     private Long id;
 
     private String nome;
+
+    @ManyToMany
+    @JoinTable(
+        name = "sala_especificacao",
+        joinColumns = @JoinColumn(name = "sala_id"), 
+        inverseJoinColumns = @JoinColumn(name = "especificacao_id")
+    )
     private List<Especificacao> listaEspecificacoes ;
+
     private Integer maxAlunos;
 
     public Sala() {
@@ -27,6 +38,14 @@ public class Sala {
         this.setNome(nome);
         this.setListaEspecificacoes(especificacoes);
         this.setMaxAlunos(maxAlunos);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Integer getMaxAlunos() {

@@ -1,7 +1,6 @@
 package com.SalaLivre.reservas.model.services;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,12 +33,14 @@ public class SalaService {
         }
 
         List<Especificacao> especList = new ArrayList<Especificacao>();
-        for(Long id : sala.getEpecId()) {
-            Optional<Especificacao> especOpt = especRepository.findById(id);
-            if(especOpt.isEmpty()) {
-                throw new Exception("Especificação com id:" + id + " não encontrado.");
+        if (sala.getEspecId() != null && !sala.getEspecId().isEmpty()) {
+            for(Long id : sala.getEspecId()) {
+                Optional<Especificacao> especOpt = especRepository.findById(id);
+                if(especOpt.isEmpty()) {
+                    throw new Exception("Especificação com id:" + id + " não encontrado.");
+                }
+                especList.add(especOpt.get());
             }
-            especList.add(especOpt.get());
         }
 
         Sala novaSala = new Sala();
@@ -88,7 +89,7 @@ public class SalaService {
         }
 
         List<Especificacao> especList = new ArrayList<Especificacao>();
-        for(Long eId : sala.getEpecId()) {
+        for(Long eId : sala.getEspecId()) {
             Optional<Especificacao> especOpt = especRepository.findById(eId);
             if(especOpt.isEmpty()) {
                 throw new Exception("Especificação com id:" + eId + " não encontrado.");

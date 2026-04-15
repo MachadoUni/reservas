@@ -1,11 +1,12 @@
 package com.SalaLivre.reservas.model.DTO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SalaDTO {
     private String nome;
     private Integer maxAlunos;
-    private List<Long> epecId;
+    private List<Long> especId = new ArrayList<Long>();
 
     public SalaDTO() {
         
@@ -27,12 +28,12 @@ public class SalaDTO {
         this.maxAlunos = maxAlunos;
     }
 
-    public List<Long> getEpecId() {
-        return epecId;
+    public List<Long> getEspecId() {
+        return especId;
     }
 
-    public void setEpecId(List<Long> epecId) {
-        this.epecId = epecId;
+    public void setEspecId(List<Long> especId) {
+        this.especId = especId;
     }
 
     @Override
@@ -40,7 +41,7 @@ public class SalaDTO {
         return "Sala{" +
                 "nome='" + nome + '\'' +
                 ", maximo de alunos='" + maxAlunos + '\'' +
-                ", IDespecificações='" + epecId + '\'' +
+                ", IDespecificações='" + especId + '\'' +
                 '}';
     }
 
