@@ -40,22 +40,22 @@ O front-end dessa aplicação pode ser encontrado em [aqui](https://github.com/M
 
 ### 1. Clone o repositório:
 Na pasta onde deseja clonar o projeto:
-```
+```bash
 git clone https://github.com/MachadoUni/reservas.git
 ```
 
 ### 2. Acesse a pasta do projeto:
 Na mesma linha de comando:
-```
+```bash
 cd reservas
 ```
 
 ### 3. Execute o projeto utilizando Maven:
-```
+```bash
 mvn spring-boot:run
 ```
 ### 4. Mapeamentos padrão:
-O console do banco de dados pode ser encontrado em localhost:8080/h2-console e pode ser acessado com os dados:
+O console do banco de dados pode ser encontrado em http://localhost:8080/h2-console e pode ser acessado com os dados:
 * Driver Class: ``org.h2.Driver``
 * JDBC URL: ``jdbc:h2:mem:testdb``
 * User Name: ``sa``
